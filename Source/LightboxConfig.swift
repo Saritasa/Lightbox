@@ -38,7 +38,7 @@ open class LightboxConfig {
     public static var separatorColor = UIColor(hex: "3D4757")
 
     public static var textAttributes = [
-      NSFontAttributeName: UIFont.systemFont(ofSize: 12),
+      NSFontAttributeName: UIFont.systemFont(ofSize: 14),
       NSForegroundColorAttributeName: UIColor(hex: "899AB8"),
       NSParagraphStyleAttributeName: {
         var style = NSMutableParagraphStyle()
