@@ -34,16 +34,16 @@ open class LightboxConfig {
 
   public struct PageIndicator {
     public static var enabled = true
-    public static var separatorColor = UIColor(hex: "3D4757")
 
-    public static var textAttributes = [
+    public static var textAttributes: [String: Any] = [
       NSFontAttributeName: UIFont.systemFont(ofSize: 14),
       NSForegroundColorAttributeName: UIColor(hex: "899AB8"),
       NSParagraphStyleAttributeName: {
         var style = NSMutableParagraphStyle()
         style.alignment = .center
         return style
-        }()
+        }(),
+        NSKernAttributeName: CGFloat(2)
     ]
   }
 

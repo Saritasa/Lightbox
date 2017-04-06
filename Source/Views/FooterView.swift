@@ -16,7 +16,7 @@ open class FooterView: UIView {
     label.delegate = self
 
     return label
-    }()
+  }()
 
   open fileprivate(set) lazy var pageLabel: UILabel = { [unowned self] in
     let label = UILabel(frame: CGRect.zero)
@@ -24,15 +24,7 @@ open class FooterView: UIView {
     label.numberOfLines = 1
 
     return label
-    }()
-
-  open fileprivate(set) lazy var separatorView: UIView = { [unowned self] in
-    let view = UILabel(frame: CGRect.zero)
-    view.isHidden = !LightboxConfig.PageIndicator.enabled
-    view.backgroundColor = LightboxConfig.PageIndicator.separatorColor
-
-    return view
-    }()
+  }()
 
   open weak var delegate: FooterViewDelegate?
 
@@ -43,7 +35,7 @@ open class FooterView: UIView {
 
     backgroundColor = UIColor.clear
 
-    [pageLabel, infoLabel, separatorView].forEach { addSubview($0) }
+    [pageLabel, infoLabel].forEach { addSubview($0) }
   }
 
   public required init?(coder aDecoder: NSCoder) {
@@ -75,12 +67,9 @@ open class FooterView: UIView {
 
     pageLabel.frame.origin = CGPoint(
       x: (frame.width - pageLabel.frame.width) / 2,
-      y: frame.height - pageLabel.frame.height - 2)
+      y: frame.height - pageLabel.frame.height * 2)
 
-    separatorView.frame = CGRect(x: 0, y: pageLabel.frame.minY - 2.5,
-      width: frame.width, height: 0.5)
-
-    infoLabel.frame.origin.y = separatorView.frame.minY - infoLabel.frame.height - 15
+    infoLabel.frame.origin.y = pageLabel.frame.minY - infoLabel.frame.height - 15
 
     resizeGradientLayer()
   }
